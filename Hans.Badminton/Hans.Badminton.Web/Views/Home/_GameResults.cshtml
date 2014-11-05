@@ -1,0 +1,67 @@
+﻿@model Hans.Badminton.Core.ResultGenerator
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="background-color: yellow">Game #</th>
+            <th style="background-color: yellow">Player 1</th>
+            <th style="background-color: yellow">Player 2</th>
+            <th style="background-color: yellow">Score</th>
+            <th style="background-color: yellow">Player 3</th>
+            <th style="background-color: yellow">Player 4</th>
+            <th style="background-color: yellow">Score</th>
+            <th style="background-color: yellow">Different</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var counter = 1;
+            var toughest = Model.LeagueRankings.Max(x => x.LoserPoint);
+            var nomercy = Model.LeagueRankings.Max(x => x.Different);
+                
+            foreach (var item in Model.LeagueRankings)
+            {
+                if (toughest == item.LoserPoint)
+                { 
+                    <tr>
+                        <td style="background-color: #99CCFF">@counter</td>
+                        <td style="background-color: #99CCFF">@item.Winner1</td>
+                        <td style="background-color: #99CCFF">@item.Winner2</td>
+                        <td style="background-color: #99CCFF">@item.WinnerPoint</td>
+                        <td style="background-color: #99CCFF">@item.Loser1</td>
+                        <td style="background-color: #99CCFF">@item.Loser2</td>
+                        <td style="background-color: #99CCFF">@item.LoserPoint</td>
+                        <td style="color: blue; background-color: #99CCFF"><strong>@item.Different</strong></td>
+                    </tr>
+                }
+                else if (nomercy == item.Different)
+                {
+                    <tr>
+                        <td style="background-color: #FF99CC">@counter</td>
+                        <td style="background-color: #FF99CC">@item.Winner1</td>
+                        <td style="background-color: #FF99CC">@item.Winner2</td>
+                        <td style="background-color: #FF99CC">@item.WinnerPoint</td>
+                        <td style="background-color: #FF99CC">@item.Loser1</td>
+                        <td style="background-color: #FF99CC">@item.Loser2</td>
+                        <td style="background-color: #FF99CC">@item.LoserPoint</td>
+                        <td style="color: blue; background-color: #FF99CC"><strong>@item.Different</strong></td>
+                    </tr>
+                }
+                else
+                { 
+                    <tr>
+                        <td>@counter</td>
+                        <td>@item.Winner1</td>
+                        <td>@item.Winner2</td>
+                        <td>@item.WinnerPoint</td>
+                        <td>@item.Loser1</td>
+                        <td>@item.Loser2</td>
+                        <td>@item.LoserPoint</td>
+                        <td style="color:blue"><strong>@item.Different</strong></td>
+                    </tr>
+                }
+                counter++;
+            }
+        }
+    </tbody>
+</table>

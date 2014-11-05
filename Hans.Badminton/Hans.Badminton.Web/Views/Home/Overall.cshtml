@@ -1,0 +1,49 @@
+﻿@model Hans.Badminton.Core.ResultGenerator
+@{
+    ViewBag.Title = "Super League";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<h3>Pair Rankings</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="background-color: yellow">Rank</th>
+            <th style="background-color: yellow" colspan="2">Pair</th>
+            <th style="background-color: yellow">Game</th>
+            <th style="background-color: yellow">Win</th>
+            <th style="background-color: yellow">Lose</th>
+            <th style="background-color: yellow">WD</th>
+            <th style="background-color: yellow">LD</th>
+            <th style="background-color: yellow">Different</th>
+            <th style="background-color: yellow">Percentage</th>
+            <th style="background-color: yellow">Point</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var counter = 1;
+            foreach (var item in Model.PairRankings)
+            {
+                <tr>
+                    <td>@counter</td>
+                    <td>@item.Player1</td>
+                    <td>@item.Player2</td>
+                    <td>@item.Game</td>
+                    <td style="color: red"><strong>@item.Win</strong></td>
+                    <td>@(item.Game - item.Win)</td>
+                    <td>@item.WinPoint</td>
+                    <td>@item.LosePoint</td>
+                    <td>@item.Different</td>
+                    <td style="color:blue"><strong>@item.Percentage</strong></td>
+                    <td><strong>@item.Point</strong></td>
+                </tr>
+                counter++;
+            }
+        }
+    </tbody>
+</table>
+<p><strong>** POINT > WIN > WD > DIFFERENT > WIN PERCENTAGE</strong></p>
+

@@ -1,0 +1,17 @@
+﻿@model Hans.Badminton.Core.ResultGenerator
+@{
+    ViewBag.Title = "Premier League";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<h3>Games</h3>
+@Html.Partial("_GameResults", Model)
+<br />
+<h3>Player Rankings</h3>
+@Html.Partial("_PlayerRankings", Model)
+<br />
+<h3>Pair Rankings</h3>
+@Html.Partial("_PairRankings", Model)
+
