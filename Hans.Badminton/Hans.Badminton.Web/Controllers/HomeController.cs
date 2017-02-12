@@ -62,7 +62,7 @@ namespace Hans.Badminton.Web.Controllers
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
             string fileName = "sample.txt";
-            return File(path + fileName, "text/HTML", "sample.txt");
+            return File(path + fileName, "text/plain; charset=utf-8", "sample.txt");
         }
 
         public ActionResult NormalLeague()
