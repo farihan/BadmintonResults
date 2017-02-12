@@ -60,10 +60,8 @@ namespace Hans.Badminton.Web.Controllers
 
         public FilePathResult GetFileFromDisk()
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
-            string fileName = "sample.txt";
-            
-            return File(path + fileName, "Text/XML", "sample.txt");
+            var file = Server.MapPath("~/Log/sample.txt");
+            return File(file, "Text/XML", "sample.txt");
         }
 
         public ActionResult NormalLeague()
