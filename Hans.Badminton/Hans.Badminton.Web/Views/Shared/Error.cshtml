@@ -5,13 +5,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .error-page {padding: 40px 15px;text-align: center;}
+        .error-actions {margin-top:15px;margin-bottom:15px;}
+        .error-actions .btn { margin-right:10px; }
+        h1.processerror {    font-size :100px !important; }
+    </style>
 </head>
 <body>
-    <hgroup>
-        <h1>Error.</h1>
-        <h2>An error occurred while processing your request.</h2>
-    </hgroup>
+    <div class="error-page">
+        <h2>Oops!</h2>
+        <h1 class="processerror"> Error </h1>
+        <h2>Sorry, an error occurred while processing your request!</h2>
+    </div>
 </body>
 </html>

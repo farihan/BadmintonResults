@@ -33,17 +33,29 @@ namespace Hans.Badminton.Web.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file)
         {
-            string result = new StreamReader(file.InputStream).ReadToEnd();
+            try
+            {
+                string result = new StreamReader(file.InputStream).ReadToEnd();
 
-            var generator = new ResultGenerator(string.Empty, result);
-            generator.PopulateRawResults();
-            generator.PopulateLeagueRankingResults();
-            generator.PopulateRawPlayers();
-            generator.PopulatePlayerRankings();
-            generator.PopulateRawPair();
-            generator.PopulatePairRankings();
+                var generator = new ResultGenerator(string.Empty, result);
+                generator.PopulateRawResults();
+                generator.PopulateLeagueRankingResults();
+                generator.PopulateRawPlayers();
+                generator.PopulatePlayerRankings();
+                generator.PopulateRawPair();
+                generator.PopulatePairRankings();
 
-            return View(generator);
+                return View(generator);
+            }
+            catch(Exception ex)
+            {
+                return RedirectToAction("Error");
+            }
+        }
+
+        public ActionResult Error()
+        {
+            return View();
         }
 
         public FilePathResult GetFileFromDisk()
