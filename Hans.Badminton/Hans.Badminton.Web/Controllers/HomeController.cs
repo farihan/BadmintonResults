@@ -60,7 +60,7 @@ namespace Hans.Badminton.Web.Controllers
 
         public FilePathResult GetFileFromDisk()
         {
-            string path = AppDomain.CurrentDomain.BaseDirectory + "Log/";
+            string path = AppDomain.CurrentDomain.BaseDirectory + "Log\\";
             string fileName = "normal_2014-10-21.txt";
             return File(path + fileName, "text/plain", "sample.txt");
         }
