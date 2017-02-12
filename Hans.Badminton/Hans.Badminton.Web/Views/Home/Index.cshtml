@@ -9,7 +9,7 @@
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <label for="uploadFile">Select a file from your computer (<a href="~/Log/sample.txt">Get a sample file</a>)</label>
+        <label for="uploadFile">Select a file from your computer (<a href="~/Log/sample.txt" target="_blank">Get a sample file</a>)</label>
         <div class="editor-field">
             @Html.TextBox("file", "", new { type = "file" })
         </div>        
