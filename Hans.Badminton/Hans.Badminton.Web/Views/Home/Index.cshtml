@@ -3,13 +3,13 @@
     ViewBag.Title = "Calculate";
 }
 
-<h2>Upload a file</h2>
+<h2>Upload a file to calculate</h2>
 
 @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-group">
-        <label for="uploadFile">Select file (<a href="/Home/GetFileFromDisk">Click here to get a sample file</a>)</label>
+        <label for="uploadFile">Select a file from your computer (<a href="/Home/GetFileFromDisk">Click here to get a sample file</a>)</label>
         <div class="editor-field">
             @Html.TextBox("file", "", new { type = "file" })
         </div>        
