@@ -12,7 +12,7 @@ namespace Hans.Badminton.Tests
         {
             var file = @"C:\Downloads\Workspaces\Hans.Badminton\Hans.Badminton.Tests\bin\Debug\TestData_1.txt";
 
-            var generator = new ResultGenerator(file);
+            var generator = new ResultGenerator(file, string.Empty);
             generator.PopulateRawResults();
 
             Assert.AreEqual(3, generator.RawResults.Count);
@@ -29,7 +29,7 @@ namespace Hans.Badminton.Tests
         {
             var file = @"C:\Downloads\Workspaces\Hans.Badminton\Hans.Badminton.Tests\bin\Debug\TestData_1.txt";
 
-            var generator = new ResultGenerator(file);
+            var generator = new ResultGenerator(file, string.Empty);
             generator.PopulateRawResults();
             generator.PopulateLeagueRankingResults();
 
@@ -54,7 +54,7 @@ namespace Hans.Badminton.Tests
         {
             var file = @"C:\Downloads\Workspaces\Hans.Badminton\Hans.Badminton.Tests\bin\Debug\TestData_1.txt";
 
-            var generator = new ResultGenerator(file);
+            var generator = new ResultGenerator(file, string.Empty);
             generator.PopulateRawResults();
             generator.PopulateLeagueRankingResults();
             generator.PopulateRawPlayers();
@@ -81,7 +81,7 @@ namespace Hans.Badminton.Tests
         {
             var file = @"C:\Downloads\Workspaces\Hans.Badminton\Hans.Badminton.Tests\bin\Debug\TestData_2.txt";
 
-            var generator = new ResultGenerator(file);
+            var generator = new ResultGenerator(file, string.Empty);
             generator.PopulateRawResults();
             generator.PopulateLeagueRankingResults();
             generator.PopulateRawPlayers();

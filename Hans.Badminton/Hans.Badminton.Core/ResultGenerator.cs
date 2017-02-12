@@ -11,6 +11,7 @@ namespace Hans.Badminton.Core
     public class ResultGenerator
     {
         public string SourceFile { get; set; }
+        public string TextFile { get; set; }
 
         public List<RawResult> RawResults { get; set; }
         public List<LeagueRanking> LeagueRankings { get; set; }
@@ -19,9 +20,10 @@ namespace Hans.Badminton.Core
         public List<RawPair> RawPairs { get; set; }
         public List<PairRanking> PairRankings { get; set; }
 
-        public ResultGenerator(string sourceFile)
+        public ResultGenerator(string sourceFile, string textFile)
         {
             SourceFile = sourceFile;
+            TextFile = textFile;
 
             RawResults = new List<RawResult>();
             LeagueRankings = new List<LeagueRanking>();
@@ -33,7 +35,13 @@ namespace Hans.Badminton.Core
 
         public void PopulateRawResults()
         {
-            var text = File.ReadAllText(SourceFile);
+            var text = string.Empty;
+
+            if (SourceFile != "")
+                text = File.ReadAllText(SourceFile);
+            else
+                text = TextFile;
+
             var processText = text.ToLower().Replace("vs", "");
             var lines = processText.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
@@ -267,7 +275,14 @@ namespace Hans.Badminton.Core
         private List<PairRanking> ReadFromSource()
         {
             var raws = new List<PairRanking>();
-            var text = File.ReadAllText(SourceFile);
+
+            var text = string.Empty;
+
+            if (SourceFile != "")
+                text = File.ReadAllText(SourceFile);
+            else
+                text = TextFile;
+
             var lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var line in lines)
