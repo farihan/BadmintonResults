@@ -61,7 +61,7 @@ namespace Hans.Badminton.Web.Controllers
         public FilePathResult GetFileFromDisk()
         {
             var file = Server.MapPath("~/Log/sample.txt");
-            return File(file, System.Net.Mime.MediaTypeNames.Application.Octet, "sample.txt");
+            return File(file, "Text/HTML", "sample.txt");
         }
 
         public ActionResult NormalLeague()
