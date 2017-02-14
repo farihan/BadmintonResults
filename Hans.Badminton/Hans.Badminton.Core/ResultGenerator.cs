@@ -297,8 +297,8 @@ namespace Hans.Badminton.Core
 
                 var regex = new Regex(@"^\d+$");
 
-                var p1 = words[0].ToUpper();
-                var p2 = words[1].ToUpper();
+                var p1 = words[0].Trim().ToUpper();
+                var p2 = words[1].Trim().ToUpper();
                 var initials = string.Format("{0} {1}", p1, p2);
                 var game = int.Parse(words[2]);
                 var win = int.Parse(words[3]);
