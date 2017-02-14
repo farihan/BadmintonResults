@@ -67,11 +67,11 @@ namespace Hans.Badminton.Core
                 {
                     RawResults.Add(new RawResult
                     {
-                        Player1 = words[0].ToUpper(),
-                        Player2 = words[1].ToUpper(),
+                        Player1 = words[0].Trim().ToUpper(),
+                        Player2 = words[1].Trim().ToUpper(),
                         Point1 = int.Parse(words[2]),
-                        Player3 = words[3].ToUpper(),
-                        Player4 = words[4].ToUpper(),
+                        Player3 = words[3].Trim().ToUpper(),
+                        Player4 = words[4].Trim().ToUpper(),
                         Point2 = int.Parse(words[5])
                     });
                 }
@@ -79,10 +79,10 @@ namespace Hans.Badminton.Core
                 {
                     RawResults.Add(new RawResult
                     {
-                        Player1 = words[0].ToUpper(),
-                        Player2 = words[1].ToUpper(),
-                        Player3 = words[2].ToUpper(),
-                        Player4 = words[3].ToUpper(),
+                        Player1 = words[0].Trim().ToUpper(),
+                        Player2 = words[1].Trim().ToUpper(),
+                        Player3 = words[2].Trim().ToUpper(),
+                        Player4 = words[3].Trim().ToUpper(),
                         Point1 = int.Parse(words[4]),
                         Point2 = int.Parse(words[5])
                     });
