@@ -27,7 +27,7 @@
                     <td style="color: red"><strong>@item.Win</strong></td>
                     <td>@(item.Game - item.Win)</td>
                     <td>@item.WinPoint</td>
-                    <td>@item.LosePoint</td>
+                    <td>@(item.LosePoint > 0 ? string.Format("-{0}", item.LosePoint) : item.LosePoint.ToString())</td>
                     <td>@item.Different</td>
                     <td style="color:blue"><strong>@item.Percentage%</strong></td>
                 </tr>
